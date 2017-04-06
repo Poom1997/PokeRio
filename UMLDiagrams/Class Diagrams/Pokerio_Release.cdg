@@ -1,0 +1,863 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="PokeRio">
+  <ClassDiagramComponents>
+    <Class name="ImageRender" package="pokerio.gfx" visibility="public" xPosition="1145.0" yPosition="1517.0">
+      <Fields>
+        <Field name="sheet" type="SpriteSheet" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="wall_img" type="Sprite" visibility="public" isStatic="true"/>
+        <Field name="wall_img_Left" type="Sprite" visibility="public" isStatic="true"/>
+        <Field name="wall_img_Right" type="Sprite" visibility="public" isStatic="true"/>
+        <Field name="wall_img_Alone" type="Sprite" visibility="public" isStatic="true"/>
+        <Field name="wall_img_Base" type="Sprite" visibility="public" isStatic="true"/>
+        <Field name="players" type="Sprite" visibility="public" isStatic="true"/>
+        <Field name="boss" type="Sprite" visibility="public" isStatic="true"/>
+        <Field name="coin" type="Sprite" visibility="public" isStatic="true"/>
+        <Field name="goomba" type="Sprite" visibility="public" isStatic="true"/>
+        <Field name="ball" type="Sprite" visibility="public" isStatic="true"/>
+        <Field name="levels" type="BufferedImage[]" visibility="public" isStatic="true"/>
+        <Field name="background" type="BufferedImage[]" visibility="public" isStatic="true"/>
+        <Field name="menu" type="BufferedImage[]" visibility="public" isStatic="true"/>
+        <Field name="button" type="BufferedImage[]" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="init_All" returnType="void" visibility="public"/>
+        <Method name="init_Tile" returnType="void" visibility="public">
+          <Argument type="int" name="LVL_TILE"/>
+        </Method>
+        <Method name="init_Ball" returnType="void" visibility="public"/>
+        <Method name="init_lvl" returnType="void" visibility="public"/>
+        <Method name="init_bkgnd" returnType="void" visibility="public"/>
+        <Method name="init_Coin" returnType="void" visibility="public"/>
+        <Method name="init_Player" returnType="void" visibility="public"/>
+        <Method name="init_Goomba" returnType="void" visibility="public"/>
+        <Method name="init_Boss" returnType="void" visibility="public"/>
+        <Method name="init_Menu" returnType="void" visibility="public"/>
+        <Method name="init_Button" returnType="void" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="Sprite" package="pokerio.gfx" visibility="public" xPosition="300.0" yPosition="1853.0">
+      <Fields>
+        <Field name="sheet" type="SpriteSheet" visibility="public"/>
+        <Field name="image" type="BufferedImage" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="SpriteSheet" name="sheet"/>
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getBufferedImage" returnType="BufferedImage" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="SpriteSheet" package="pokerio.gfx" visibility="public" xPosition="575.0" yPosition="1554.0">
+      <Fields>
+        <Field name="sheet" type="BufferedImage" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="path"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getSprite" returnType="BufferedImage" visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="text_screen" package="pokerio.gfx" visibility="public" xPosition="3729.0" yPosition="341.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="screenMsg" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="screenMsgBOSS" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="startMsg" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="gameOver" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="connectionError" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="gameError" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="endCredits" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Graphics" name="g"/>
+          <Argument type="int" name="i"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="input" package="pokerio.helperPackage" visibility="public" xPosition="3745.0" yPosition="125.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="keyTyped" returnType="void" visibility="public">
+          <Argument type="KeyEvent" name="e"/>
+        </Method>
+        <Method name="keyReleased" returnType="void" visibility="public">
+          <Argument type="KeyEvent" name="e"/>
+        </Method>
+        <Method name="keyPressed" returnType="void" visibility="public">
+          <Argument type="KeyEvent" name="e"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="staticVariable" package="pokerio.helperPackage" visibility="public" xPosition="44.0" yPosition="88.0">
+      <Fields>
+        <Field name="handler" type="gameHandler" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="cam" type="Camera" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="img" type="ImageRender" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="dbConnection" type="Database" visibility="public" isStatic="true"/>
+        <Field name="GAME_WIDTH" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="GAME_HEIGHT" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="connectionError" type="boolean" visibility="public" isStatic="true"/>
+        <Field name="gameCorrupt" type="boolean" visibility="public" isStatic="true"/>
+        <Field name="offline" type="boolean" visibility="public" isStatic="true"/>
+        <Field name="play" type="boolean" visibility="public" isStatic="true"/>
+        <Field name="login" type="boolean" visibility="public" isStatic="true"/>
+        <Field name="menu" type="boolean" visibility="public" isStatic="true"/>
+        <Field name="lvlSelect" type="boolean" visibility="public" isStatic="true"/>
+        <Field name="help" type="boolean" visibility="public" isStatic="true"/>
+        <Field name="BOSS_LIVES" type="int" visibility="public" isStatic="true"/>
+        <Field name="curr_level" type="int" visibility="public" isStatic="true"/>
+        <Field name="bossLVL" type="boolean" visibility="public" isStatic="true"/>
+        <Field name="deathScreenTime" type="int" visibility="public" isStatic="true"/>
+        <Field name="showDeathScreen" type="boolean" visibility="public" isStatic="true"/>
+        <Field name="showLevel" type="boolean" visibility="public" isStatic="true"/>
+        <Field name="gameOver" type="boolean" visibility="public" isStatic="true"/>
+        <Field name="finish" type="boolean" visibility="public" isStatic="true"/>
+        <Field name="COLOR_TEXT_BKGND" type="Color" visibility="public" isStatic="true"/>
+        <Field name="SPRITE_SHEET" type="SpriteSheet" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="GREEN_TILE" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="RED_TILE" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="BLUE_TILE" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="YELLOW_TILE" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="LEVEL_BALL" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="SNORLAX" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="MARIO" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="GOOMBA" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="LAPRAS" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="BLASTOISE" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="CHARIZARD" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="COINS" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="PIKACHU" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="CORNER_LEFT" type="int" visibility="public" isStatic="true"/>
+        <Field name="CORNER_MID" type="int" visibility="public" isStatic="true"/>
+        <Field name="CORNER_RIGHT" type="int" visibility="public" isStatic="true"/>
+        <Field name="CORNER_ALONE" type="int" visibility="public" isStatic="true"/>
+        <Field name="CORNER_BASE" type="int" visibility="public" isStatic="true"/>
+        <Field name="COIN_STATIC" type="Sprite" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="CURR_TILE" type="int" visibility="public" isStatic="true"/>
+        <Field name="LVL0" type="Sound" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="LVL1" type="Sound" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="LVL2" type="Sound" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="LVL3" type="Sound" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="BOSS" type="Sound" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="coin_Sound" type="Sound" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="kill_goomba" type="Sound" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="lvlUp" type="Sound" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="jump_Sound" type="Sound" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="die_Sound" type="Sound" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="gameOver_Sound" type="Sound" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="kill_boss" type="Sound" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="win_Sound" type="Sound" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="walk_boss" type="Sound" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="run_boss" type="Sound" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="die_boss" type="Sound" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="credit" type="Sound" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="menu_sound" type="Sound" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="theme" type="Sound" visibility="public" isStatic="true"/>
+        <Field name="username" type="String" visibility="public" isStatic="true"/>
+        <Field name="password" type="String" visibility="public" isStatic="true"/>
+        <Field name="CUR_PLAYER" type="int" visibility="public" isStatic="true"/>
+        <Field name="PLAYER_LIVES" type="int" visibility="public" isStatic="true"/>
+        <Field name="coins" type="int" visibility="public" isStatic="true"/>
+        <Field name="score" type="int" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Database" package="pokerio.main.database" visibility="public" xPosition="940.0" yPosition="807.0">
+      <Fields>
+        <Field name="conn" type="Connection" visibility="public" isStatic="true"/>
+        <Field name="st" type="Statement" visibility="public" isStatic="true"/>
+        <Field name="rs" type="ResultSet" visibility="public" isStatic="true"/>
+        <Field name="connect" type="boolean" visibility="public" isStatic="true"/>
+        <Field name="maxLvl" type="int" visibility="public" isStatic="true"/>
+        <Field name="url" type="String" visibility="package"/>
+        <Field name="dbName" type="String" visibility="package"/>
+        <Field name="driver" type="String" visibility="package"/>
+        <Field name="dbuserName" type="String" visibility="package"/>
+        <Field name="dbpassword" type="String" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="openConnection" returnType="void" visibility="private"/>
+        <Method name="read" returnType="void" visibility="public"/>
+        <Method name="write" returnType="void" visibility="public"/>
+        <Method name="unlockChar" returnType="void" visibility="public">
+          <Argument type="int" name="Char"/>
+        </Method>
+        <Method name="checkExistUser" returnType="boolean" visibility="public">
+          <Argument type="String" name="user"/>
+          <Argument type="String" name="pass"/>
+        </Method>
+        <Method name="checkExistNewUser" returnType="boolean" visibility="public">
+          <Argument type="String" name="user"/>
+        </Method>
+        <Method name="reset" returnType="void" visibility="public"/>
+        <Method name="create" returnType="void" visibility="public">
+          <Argument type="String" name="newuser"/>
+          <Argument type="String" name="newpass"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Camera" package="pokerio.main.game" visibility="public" xPosition="1366.0" yPosition="106.0">
+      <Fields>
+        <Field name="x" type="int" visibility="public"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="tick" returnType="void" visibility="public">
+          <Argument type="Object" name="player"/>
+        </Method>
+        <Method name="getX" returnType="int" visibility="public"/>
+        <Method name="setX" returnType="void" visibility="public">
+          <Argument type="int" name="x"/>
+        </Method>
+        <Method name="getY" returnType="int" visibility="public"/>
+        <Method name="setY" returnType="void" visibility="public">
+          <Argument type="int" name="y"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="gameHandler" package="pokerio.main.game" visibility="public" xPosition="1684.0" yPosition="1377.0">
+      <Fields>
+        <Field name="object" type="ArrayList&lt;Object&gt;" visibility="public"/>
+        <Field name="tile" type="ArrayList&lt;Tiles&gt;" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="render" returnType="void" visibility="public">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="tick" returnType="void" visibility="public"/>
+        <Method name="addObject" returnType="void" visibility="public">
+          <Argument type="Object" name="o"/>
+        </Method>
+        <Method name="delObject" returnType="void" visibility="public">
+          <Argument type="Object" name="o"/>
+        </Method>
+        <Method name="addTiles" returnType="void" visibility="public">
+          <Argument type="Tiles" name="t"/>
+        </Method>
+        <Method name="delTiles" returnType="void" visibility="public">
+          <Argument type="Tiles" name="t"/>
+        </Method>
+        <Method name="createLevel" returnType="void" visibility="public">
+          <Argument type="BufferedImage" name="level"/>
+          <Argument type="int" name="lev"/>
+        </Method>
+        <Method name="clearLevel" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="gameMain" package="pokerio.main.game" visibility="public" xPosition="2842.0" yPosition="59.0">
+      <Fields>
+        <Field name="run" type="boolean" visibility="private"/>
+        <Field name="thread" type="Thread" visibility="private"/>
+        <Field name="runTime" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="init" returnType="void" visibility="private"/>
+        <Method name="start" returnType="void" visibility="public" isSynchronized="true"/>
+        <Method name="stop" returnType="void" visibility="public" isSynchronized="true"/>
+        <Method name="run" returnType="void" visibility="public"/>
+        <Method name="render" returnType="void" visibility="public"/>
+        <Method name="tick" returnType="void" visibility="public"/>
+        <Method name="getFrameWidth" returnType="int" visibility="public"/>
+        <Method name="getFrameHeight" returnType="int" visibility="public"/>
+        <Method name="switchLevel" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="setup" returnType="void" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="startTask" package="pokerio.main.game" visibility="public" xPosition="3220.0" yPosition="125.0">
+      <Fields>
+        <Field name="TITLE" type="String" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="game" type="gameMain" visibility="public" isStatic="true"/>
+        <Field name="winFrame" type="JFrame" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="gamePlay" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="gameStop" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="start" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Menu" package="pokerio.main.menu" visibility="public" xPosition="3607.0" yPosition="672.0">
+      <Fields>
+        <Field name="newid" type="String" visibility="public"/>
+        <Field name="BG" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="Login" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="add_lives" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="back" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="background_lvlSelect" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="bkgnd" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="blastoise_lock" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="blastoise_selected" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="char_bg" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="char_sel_button" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="character" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="charizard_lock" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="charizard_selected" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="coinAmt" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="existID" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="existPW" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lapras_lock" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="lapras_selected" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="level1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="level2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="level3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="level4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="level5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="levelSelect" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="loginButton" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="logout" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="mainMenu" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="newID" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="newPW" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="newRePW" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="pikachu_lock" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="pikachu_selected" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="playButton" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="playerIDMessage" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="reset" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="sighUpButton" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="snorlax_lock" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="snorlax_selected" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="status" type="javax.swing.JLabel" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="loginButtonMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="sighUpButtonMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="statusMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="playButtonMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="char_sel_buttonMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="level1MouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="level2MouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="level3MouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="level4MouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="level5MouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="pikachu_lockMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="snorlax_lockMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="lapras_lockMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="charizard_lockMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="blastoise_lockMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="jLabel1MouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="logoutMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="resetMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="backMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="coinAmtMouseClicked" returnType="void" visibility="private">
+          <Argument type="java.awt.event.MouseEvent" name="evt"/>
+        </Method>
+        <Method name="levelunlock" returnType="void" visibility="private"/>
+        <Method name="playerunlock" returnType="void" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="goomba" package="pokerio.object" visibility="public" xPosition="1322.0" yPosition="807.0">
+      <Fields>
+        <Field name="frame" type="int" visibility="private"/>
+        <Field name="frameDelay" type="int" visibility="private"/>
+        <Field name="animate" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+          <Argument type="boolean" name="solid"/>
+          <Argument type="objectType" name="type"/>
+          <Argument type="gameHandler" name="handler"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="render" returnType="void" visibility="public">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="tick" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Object" package="pokerio.object" visibility="public" isAbstract="true" xPosition="2068.0" yPosition="163.0">
+      <Fields>
+        <Field name="x" type="int" visibility="public"/>
+        <Field name="width" type="int" visibility="public"/>
+        <Field name="facing" type="int" visibility="public"/>
+        <Field name="gravity" type="double" visibility="public"/>
+        <Field name="solid" type="boolean" visibility="public"/>
+        <Field name="jump" type="boolean" visibility="public"/>
+        <Field name="type" type="objectType" visibility="public"/>
+        <Field name="handler" type="gameHandler" visibility="public"/>
+        <Field name="attackable" type="boolean" visibility="public"/>
+        <Field name="bossState" type="BossState" visibility="public"/>
+        <Field name="phaseTime" type="int" visibility="public"/>
+        <Field name="hp" type="int" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+          <Argument type="boolean" name="solid"/>
+          <Argument type="objectType" name="type"/>
+          <Argument type="gameHandler" name="handler"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getX" returnType="int" visibility="public"/>
+        <Method name="setX" returnType="void" visibility="public">
+          <Argument type="int" name="x"/>
+        </Method>
+        <Method name="getY" returnType="int" visibility="public"/>
+        <Method name="setY" returnType="void" visibility="public">
+          <Argument type="int" name="y"/>
+        </Method>
+        <Method name="isSolid" returnType="boolean" visibility="public"/>
+        <Method name="setSolid" returnType="void" visibility="public">
+          <Argument type="boolean" name="solid"/>
+        </Method>
+        <Method name="setSpeedx" returnType="void" visibility="public">
+          <Argument type="int" name="speedx"/>
+        </Method>
+        <Method name="setSpeedy" returnType="void" visibility="public">
+          <Argument type="int" name="speedy"/>
+        </Method>
+        <Method name="getType" returnType="objectType" visibility="public"/>
+        <Method name="remove" returnType="void" visibility="public"/>
+        <Method name="getSide" returnType="Rectangle" visibility="public"/>
+        <Method name="getSideG" returnType="Rectangle" visibility="public"/>
+        <Method name="getSideTop" returnType="Rectangle" visibility="public"/>
+        <Method name="getSideTopB" returnType="Rectangle" visibility="public"/>
+        <Method name="getSideBottom" returnType="Rectangle" visibility="public"/>
+        <Method name="getSideLeft" returnType="Rectangle" visibility="public"/>
+        <Method name="getSideRight" returnType="Rectangle" visibility="public"/>
+        <Method name="render" returnType="void" visibility="public" isAbstract="true">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="tick" returnType="void" visibility="public" isAbstract="true"/>
+        <Method name="die" returnType="void" visibility="package"/>
+      </Methods>
+    </Class>
+    <Class name="player" package="pokerio.object" visibility="public" xPosition="2697.0" yPosition="1019.0">
+      <Fields>
+        <Field name="frame" type="int" visibility="private"/>
+        <Field name="frameDelay" type="int" visibility="private"/>
+        <Field name="animate" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+          <Argument type="boolean" name="solid"/>
+          <Argument type="objectType" name="type"/>
+          <Argument type="gameHandler" name="handler"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="render" returnType="void" visibility="public">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="tick" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="TowerBoss" package="pokerio.object" visibility="public" xPosition="1244.0" yPosition="368.0">
+      <Fields>
+        <Field name="jumpTime" type="int" visibility="public"/>
+        <Field name="addJumpTime" type="boolean" visibility="public"/>
+        <Field name="random" type="Random" visibility="private" isFinal="true"/>
+        <Field name="frame" type="int" visibility="private"/>
+        <Field name="frameDelay" type="int" visibility="private"/>
+        <Field name="animate" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+          <Argument type="boolean" name="solid"/>
+          <Argument type="objectType" name="type"/>
+          <Argument type="gameHandler" name="handler"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="render" returnType="void" visibility="public">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="tick" returnType="void" visibility="public"/>
+        <Method name="chooseState" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Sound" package="pokerio.sfx" visibility="public" xPosition="940.0" yPosition="494.0">
+      <Fields>
+        <Field name="clip" type="Clip" visibility="private"/>
+        <Field name="play" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="path"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="play" returnType="void" visibility="public"/>
+        <Method name="close" returnType="void" visibility="public"/>
+        <Method name="stop" returnType="void" visibility="public"/>
+        <Method name="isPlay" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Ball" package="pokerio.tiles" visibility="public" xPosition="2564.0" yPosition="2308.0">
+      <Fields>
+        <Field name="frame" type="int" visibility="private"/>
+        <Field name="frameDelay" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+          <Argument type="boolean" name="solid"/>
+          <Argument type="objectType" name="type"/>
+          <Argument type="gameHandler" name="handler"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="render" returnType="void" visibility="public">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="tick" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Coin" package="pokerio.tiles" visibility="public" xPosition="2886.0" yPosition="2056.0">
+      <Fields>
+        <Field name="frame" type="int" visibility="private"/>
+        <Field name="frameDelay" type="int" visibility="private"/>
+        <Field name="animate" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+          <Argument type="boolean" name="solid"/>
+          <Argument type="objectType" name="type"/>
+          <Argument type="gameHandler" name="handler"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="render" returnType="void" visibility="public">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="tick" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Tiles" package="pokerio.tiles" visibility="public" isAbstract="true" xPosition="2269.0" yPosition="1482.0">
+      <Fields>
+        <Field name="x" type="int" visibility="public"/>
+        <Field name="width" type="int" visibility="public"/>
+        <Field name="solid" type="boolean" visibility="public"/>
+        <Field name="type" type="objectType" visibility="public"/>
+        <Field name="handler" type="gameHandler" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+          <Argument type="boolean" name="solid"/>
+          <Argument type="objectType" name="type"/>
+          <Argument type="gameHandler" name="handler"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getX" returnType="int" visibility="public"/>
+        <Method name="setX" returnType="void" visibility="public">
+          <Argument type="int" name="x"/>
+        </Method>
+        <Method name="getY" returnType="int" visibility="public"/>
+        <Method name="setY" returnType="void" visibility="public">
+          <Argument type="int" name="y"/>
+        </Method>
+        <Method name="isSolid" returnType="boolean" visibility="public"/>
+        <Method name="setSolid" returnType="void" visibility="public">
+          <Argument type="boolean" name="solid"/>
+        </Method>
+        <Method name="setSpeedx" returnType="void" visibility="public">
+          <Argument type="int" name="speedx"/>
+        </Method>
+        <Method name="setSpeedy" returnType="void" visibility="public">
+          <Argument type="int" name="speedy"/>
+        </Method>
+        <Method name="getType" returnType="objectType" visibility="public"/>
+        <Method name="remove" returnType="void" visibility="public"/>
+        <Method name="getSide" returnType="Rectangle" visibility="public"/>
+        <Method name="render" returnType="void" visibility="public" isAbstract="true">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="tick" returnType="void" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="wall" package="pokerio.tiles" visibility="public" xPosition="3015.0" yPosition="1585.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+          <Argument type="boolean" name="solid"/>
+          <Argument type="objectType" name="type"/>
+          <Argument type="gameHandler" name="handler"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="render" returnType="void" visibility="public">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="tick" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="wall_alone" package="pokerio.tiles" visibility="public" xPosition="1669.0" yPosition="2113.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+          <Argument type="boolean" name="solid"/>
+          <Argument type="objectType" name="type"/>
+          <Argument type="gameHandler" name="handler"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="render" returnType="void" visibility="public">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="tick" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="wall_base" package="pokerio.tiles" visibility="public" xPosition="3015.0" yPosition="1776.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+          <Argument type="boolean" name="solid"/>
+          <Argument type="objectType" name="type"/>
+          <Argument type="gameHandler" name="handler"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="render" returnType="void" visibility="public">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="tick" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="wall_left" package="pokerio.tiles" visibility="public" xPosition="1539.0" yPosition="1821.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+          <Argument type="boolean" name="solid"/>
+          <Argument type="objectType" name="type"/>
+          <Argument type="gameHandler" name="handler"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="render" returnType="void" visibility="public">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="tick" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="wall_right" package="pokerio.tiles" visibility="public" xPosition="1990.0" yPosition="2327.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+          <Argument type="int" name="width"/>
+          <Argument type="int" name="height"/>
+          <Argument type="boolean" name="solid"/>
+          <Argument type="objectType" name="type"/>
+          <Argument type="gameHandler" name="handler"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="render" returnType="void" visibility="public">
+          <Argument type="Graphics" name="g"/>
+        </Method>
+        <Method name="tick" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Enum name="BossState" package="pokerio.helperPackage" visibility="public" xPosition="3067.0" yPosition="710.0">
+      <Literals>
+        <Literal name="IDLE"/>
+        <Literal name="SPINNING"/>
+        <Literal name="JUMPING"/>
+        <Literal name="RUNNING"/>
+        <Literal name="RECOVERING"/>
+      </Literals>
+    </Enum>
+    <Enum name="objectType" package="pokerio.helperPackage" visibility="public" xPosition="2398.0" yPosition="1093.0">
+      <Literals>
+        <Literal name="PLAYER"/>
+        <Literal name="WALL"/>
+        <Literal name="GOOMBA"/>
+        <Literal name="COIN"/>
+        <Literal name="BALL"/>
+        <Literal name="TOWERBOSS"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="players" source="pokerio.gfx.ImageRender" target="pokerio.gfx.Sprite" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="win_Sound" source="pokerio.helperPackage.staticVariable" target="pokerio.sfx.Sound" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="BOSS" source="pokerio.helperPackage.staticVariable" target="pokerio.sfx.Sound" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="LVL1" source="pokerio.helperPackage.staticVariable" target="pokerio.sfx.Sound" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="img" source="pokerio.helperPackage.staticVariable" target="pokerio.gfx.ImageRender" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="LVL0" source="pokerio.helperPackage.staticVariable" target="pokerio.sfx.Sound" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="pokerio.tiles.wall_right" target="pokerio.tiles.Tiles"/>
+    <HasRelation name="sheet" source="pokerio.gfx.Sprite" target="pokerio.gfx.SpriteSheet" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="tile" source="pokerio.main.game.gameHandler" target="pokerio.tiles.Tiles" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Tiles&gt;"/>
+    <HasRelation name="LVL3" source="pokerio.helperPackage.staticVariable" target="pokerio.sfx.Sound" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="pokerio.tiles.Tiles" target="pokerio.helperPackage.objectType" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="menu_sound" source="pokerio.helperPackage.staticVariable" target="pokerio.sfx.Sound" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="LVL2" source="pokerio.helperPackage.staticVariable" target="pokerio.sfx.Sound" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="pokerio.main.game.Camera" target="pokerio.object.Object" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="kill_boss" source="pokerio.helperPackage.staticVariable" target="pokerio.sfx.Sound" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="dbConnection" source="pokerio.helperPackage.staticVariable" target="pokerio.main.database.Database" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="object" source="pokerio.main.game.gameHandler" target="pokerio.object.Object" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Object&gt;"/>
+    <IsRelation name="is" source="pokerio.tiles.Ball" target="pokerio.tiles.Tiles"/>
+    <HasRelation name="wall_img_Alone" source="pokerio.gfx.ImageRender" target="pokerio.gfx.Sprite" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="handler" source="pokerio.helperPackage.staticVariable" target="pokerio.main.game.gameHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="COIN_STATIC" source="pokerio.helperPackage.staticVariable" target="pokerio.gfx.Sprite" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="SPRITE_SHEET" source="pokerio.helperPackage.staticVariable" target="pokerio.gfx.SpriteSheet" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="pokerio.tiles.wall_alone" target="pokerio.tiles.Tiles"/>
+    <HasRelation name="boss" source="pokerio.gfx.ImageRender" target="pokerio.gfx.Sprite" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="lvlUp" source="pokerio.helperPackage.staticVariable" target="pokerio.sfx.Sound" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="wall_img" source="pokerio.gfx.ImageRender" target="pokerio.gfx.Sprite" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="kill_goomba" source="pokerio.helperPackage.staticVariable" target="pokerio.sfx.Sound" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="handler" source="pokerio.object.Object" target="pokerio.main.game.gameHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="wall_img_Right" source="pokerio.gfx.ImageRender" target="pokerio.gfx.Sprite" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="pokerio.object.goomba" target="pokerio.object.Object"/>
+    <HasRelation name="type" source="pokerio.tiles.Tiles" target="pokerio.helperPackage.objectType" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="pokerio.main.game.gameHandler" target="pokerio.tiles.Tiles" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="goomba" source="pokerio.gfx.ImageRender" target="pokerio.gfx.Sprite" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="handler" source="pokerio.tiles.Tiles" target="pokerio.main.game.gameHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="pokerio.object.Object" target="pokerio.helperPackage.objectType" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="pokerio.tiles.wall" target="pokerio.tiles.Tiles"/>
+    <HasRelation name="credit" source="pokerio.helperPackage.staticVariable" target="pokerio.sfx.Sound" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="pokerio.tiles.Coin" target="pokerio.tiles.Tiles"/>
+    <HasRelation name="wall_img_Left" source="pokerio.gfx.ImageRender" target="pokerio.gfx.Sprite" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="pokerio.object.player" target="pokerio.object.Object"/>
+    <HasRelation name="coin" source="pokerio.gfx.ImageRender" target="pokerio.gfx.Sprite" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="coin_Sound" source="pokerio.helperPackage.staticVariable" target="pokerio.sfx.Sound" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="run_boss" source="pokerio.helperPackage.staticVariable" target="pokerio.sfx.Sound" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="die_Sound" source="pokerio.helperPackage.staticVariable" target="pokerio.sfx.Sound" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="gameOver_Sound" source="pokerio.helperPackage.staticVariable" target="pokerio.sfx.Sound" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="type" source="pokerio.object.Object" target="pokerio.helperPackage.objectType" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="sheet" source="pokerio.gfx.ImageRender" target="pokerio.gfx.SpriteSheet" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="ball" source="pokerio.gfx.ImageRender" target="pokerio.gfx.Sprite" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="bossState" source="pokerio.object.Object" target="pokerio.helperPackage.BossState" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cam" source="pokerio.helperPackage.staticVariable" target="pokerio.main.game.Camera" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="pokerio.main.game.gameHandler" target="pokerio.object.Object" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="pokerio.tiles.wall_left" target="pokerio.tiles.Tiles"/>
+    <HasRelation name="jump_Sound" source="pokerio.helperPackage.staticVariable" target="pokerio.sfx.Sound" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="theme" source="pokerio.helperPackage.staticVariable" target="pokerio.sfx.Sound" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="pokerio.tiles.wall_base" target="pokerio.tiles.Tiles"/>
+    <HasRelation name="die_boss" source="pokerio.helperPackage.staticVariable" target="pokerio.sfx.Sound" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="wall_img_Base" source="pokerio.gfx.ImageRender" target="pokerio.gfx.Sprite" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="game" source="pokerio.main.game.startTask" target="pokerio.main.game.gameMain" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="walk_boss" source="pokerio.helperPackage.staticVariable" target="pokerio.sfx.Sound" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="pokerio.object.TowerBoss" target="pokerio.object.Object"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
